@@ -2,6 +2,7 @@ package jpa_basic.hellojpa.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,7 +22,7 @@ public class Member extends BaseEntity{
     private String street;
     private String zipcode;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "locker_id")
     private Locker locker;
 }
